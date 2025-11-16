@@ -112,8 +112,6 @@ income(){
 
     # Kondisi jika memilih menu 4
     elif [[ "$menu_pemasukkan" = 4 ]]; then
-      # Menampilkan pesan untuk kembali ke menu utama dan keluar dari looping
-	    echo -e "${YELLOW}  Kembali ke menu utama ...${RESET}"
       # Keluar dari looping saat ini dan kembali ke menu utama
 	    break
     fi
@@ -122,6 +120,7 @@ income(){
 
 # Function Pengeluaran
 outcome(){
+  while true; do
     echo -e "${MAGENTA}\n  === MENU PENGELUARAN ===${RESET}\n"
 
     # Inputkan jumlah item pengeluaran bulan November
@@ -149,9 +148,8 @@ outcome(){
     pemasukkan[10]=$((pemasukkan[10]-total))
     echo -e "  Saldo akhir bulan November       : ${MAGENTA} Rp ${pemasukkan[10]}"
 
-    echo -e "${MAGENTA}  Kembali ke menu utama ..."
-
-    break
+    break;
+  done
 }
 
 echo -e "${CYAN}"
@@ -233,7 +231,7 @@ while true; do
     
   # Looping untuk lanjut atau berhenti
   while true; do
-    echo -ne "\n${CYAN}Apakah ingin memilih menu kembali? (y/n): "
+    echo -ne "\n${CYAN}Apakah ingin kembali ke menu utama? (y/n): "
     read next
     
     # Jika user tidak menginputkan salah satu diantara 'n' 'N' 'y' 'Y'
